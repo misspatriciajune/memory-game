@@ -1,7 +1,8 @@
 /*
  * Create a list that holds all of your cards
  */
-
+var card = document.getElementsByClassName("card");
+var cards = [...card];
 
 
 /*
@@ -12,7 +13,7 @@
  */
 
 
- 
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -27,8 +28,6 @@ function shuffle(array) {
 
     return array;
 }
-
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
