@@ -40,7 +40,7 @@ function playGame(){
         Array.prototype.forEach.call(cards, function(card){ 
             deck.appendChild(card); //add each card
          });
-         cards[i].classList.remove("show", "open"); //remove style
+         cards[i].classList.remove("show", "open", "match"); //remove style
     }
 }
 
