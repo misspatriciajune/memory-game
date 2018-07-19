@@ -33,6 +33,10 @@ document.body.onload = playGame(); //Call playgame() when game is loaded
 
 function playGame(){
     cards = shuffle(cards); //shuffle cards
+
+    for(var i = 0; i < cards.length; i++){ //loop through all the cards
+        
+    }
 }
 
 /*
