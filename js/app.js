@@ -61,4 +61,27 @@ reset.addEventListener("click", function(){ //Call playgame() when restart butto
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
- 
+//Click event listener for the cards
+for(var i = 0; i <  cards.length; i++){
+    cards[i].addEventListener("click", function(){  
+        display();  //display card
+        openCard(); //add to opened card list
+    });  
+}
+
+//Display of the card's symbol
+ function display(){
+    this.classList.toggle("open");  
+    this.classList.toggle("show");
+ }
+
+ //Add the card to a *list* of "open" cards
+ function openCard(){
+    var opened = [];    //holds the opened cards
+
+
+ }
+
+
+
+
