@@ -12,8 +12,6 @@ var cards = [...card];
  *   - add each card's HTML to the page
  */
 
-
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -31,6 +29,7 @@ function shuffle(array) {
 
 document.body.onload = playGame(); //Call playgame() when game is loaded
 
+//Play Game
 function playGame(){
     cards = shuffle(cards); //shuffle cards
  
@@ -43,6 +42,13 @@ function playGame(){
          });
     }
 }
+
+//Restart Game 
+var reset = document.querySelector(".restart"); //restart button
+reset.addEventListener("click", function(){ //Call playgame() when restart button is clicked
+    playGame();
+});
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
