@@ -106,8 +106,14 @@ function incorrect(){
     console.log("incorrect");
     for(var i=0;i<opened.length;i++){   
         opened[i].classList.add("notMatch");    //change color if not match
-        opened[i].classList.remove("show","open"); 
     }
-    
+    setTimeout(hide, 1000); //reset style of card
+}
+
+//Hide symbol of card
+function hide(){
+    for(var i = 0; i < opened.length; i++){   
+        opened[i].classList.remove("show","open","notMatch"); 
+    } 
     opened = [];    //reset opened cards array
 }
