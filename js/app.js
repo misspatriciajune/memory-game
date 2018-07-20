@@ -1,24 +1,24 @@
 /*
  * Create a list that holds all of your cards
  */
-var card = document.getElementsByClassName("card");
+var card = document.getElementsByClassName("card");         
 var cards = [...card];
 
-var matched = document.getElementsByClassName("match"); //get matched cards
-var reset = document.querySelector(".restart"); //restart button
-var moves = document.querySelector(".moves"); //moves placeholder
-var modal = document.querySelector(".modal"); //get the modal
-var star = document.querySelectorAll(".fa-star"); //stars
-var timer = document.querySelector(".timer"); //timer placeholder
+var matched = document.getElementsByClassName("match");     //get matched cards
+var reset = document.querySelector(".restart");             //restart button
+var moves = document.querySelector(".moves");               //moves placeholder
+var modal = document.querySelector(".modal");               //get the modal
+var star = document.querySelectorAll(".fa-star");           //stars
+var timer = document.querySelector(".timer");               //timer placeholder
 
-var totaltime; //total time placeholder
-var hr = 0; //hour
-var min = 0; //minute
-var sec = 0; //second
-var opened = []; //holds opened cards
-var count = 0; //no. of moves counter
+var totaltime;      //total time placeholder
+var hr = 0;         //hour
+var min = 0;        //minute
+var sec = 0;        //second
+var opened = [];    //holds opened cards
+var count = 0;      //no. of moves counter
 
-document.body.onload = playGame(); //Call playgame() when game is loaded
+document.body.onload = playGame();  //Call playgame() when game is loaded
 
 /*
  * Display the cards on the page
@@ -27,6 +27,7 @@ document.body.onload = playGame(); //Call playgame() when game is loaded
  *   - add each card's HTML to the page
  */
 
+ 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;

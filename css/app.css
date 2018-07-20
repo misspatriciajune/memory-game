@@ -44,7 +44,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(to top, #fffcdc, #d9a7c7); 
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -71,7 +71,7 @@ h1 {
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: powderblue;
     cursor: default;
 }
 
@@ -81,12 +81,12 @@ h1 {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: mediumorchid;
     font-size: 33px;
 }
 
 .deck .card.notMatch {
-	background:tomato;
+	background:moccasin;
 }
 
 .deck .card.unclickable{
@@ -123,11 +123,10 @@ h1 {
 }
 
 .score-panel .stars li .shade{
-    color: plum;
+    color: powderblue;
 }
 
 .score-panel .restart {
-    /* float: right; */
     cursor: pointer;
 }
 
@@ -157,7 +156,7 @@ h1 {
 }
 
 .modal-content .totalRating .shade{
-   color: plum;
+   color: orchid;
 }
 
 .modal-content .totalRating li{
@@ -191,13 +190,13 @@ h1 {
     margin-top: 2em;
     margin-bottom: 2em;
     border: none;
-    background: orange;
+    background: moccasin;
     text-transform: uppercase;
     border-radius: 50px;
 }
 
 .modal-content .modalBtn:hover{
-    background: sandybrown;
+    background: peachpuff;
 }
 
 /** Responsiveness **/
