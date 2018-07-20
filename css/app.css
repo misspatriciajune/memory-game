@@ -107,6 +107,10 @@ h1 {
     display: inline-block;
 }
 
+.score-panel .stars li .shade{
+    color: plum;
+}
+
 .score-panel .restart {
     float: right;
     cursor: pointer;

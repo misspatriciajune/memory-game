@@ -4,9 +4,12 @@
 var card = document.getElementsByClassName("card");
 var cards = [...card];
 
+
 var opened = []; //holds opened cards
 var count = 0; //no. of moves counter
+var reset = document.querySelector(".restart"); //restart button
 var moves = document.querySelector(".moves"); //moves placeholder
+var modal = document.querySelector(".modal"); //get the modal
 
 /*
  * Display the cards on the page
@@ -51,7 +54,6 @@ function playGame(){
 }
 
 //Restart Game 
-var reset = document.querySelector(".restart"); //restart button
 reset.addEventListener("click", function(){ //Call playgame() when restart button is clicked
     playGame();
 });
@@ -126,10 +128,24 @@ function hide(){
 function countMoves(){
     count++; //increment no. of moves
     moves.innerHTML = count; //display no. of moves
-
+    progress(count);
 }
 
-var modal = document.querySelector(".modal"); //get the modal
+//Star meter
+function progress(count){
+    var star = document.querySelectorAll(".fa-star");
+    if(count > 8 && count < 12){    //if no. of moves is 8 to 12, decrement star meter
+        for(var i = 0; i < 3; i++){
+            star[2].classList.add("shade");
+        }
+    }   
+    else if(count > 13){    //if no. of moves is more than 13, decrement
+        for(var i = 0; i < 3; i++){
+            star[1].classList.add("shade");
+        }
+    }
+}
+
 //Winning modal
 function allCards(){
     var matched = document.getElementsByClassName("match"); //get match cards
