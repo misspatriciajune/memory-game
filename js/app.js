@@ -16,6 +16,7 @@ var totaltime; //total time placeholder
 var hr = 0; //hour
 var min = 0; //minute
 var sec = 0; //second
+var matched = document.getElementsByClassName("match"); //get match cards
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -111,7 +112,7 @@ function display(){
 function correct(){
     console.log("Cards matched!");
     for(var i = 0; i < opened.length; i++){   
-        opened[i].classList.add("match");   //change color if match and lock the cards
+        opened[i].classList.add("match", "unclickable");   //change color if match and lock the cards
         opened[i].classList.remove("open","show");
     }
     opened = []; //reset opened cards array
@@ -182,7 +183,6 @@ function timed(){
 
 //Winning modal
 function allCards(){
-    var matched = document.getElementsByClassName("match"); //get match cards
     if(matched.length === 16){  //check if all cards are matched
         console.log("All cards are matched!");
         var totalRating = document.querySelector(".totalRating");
