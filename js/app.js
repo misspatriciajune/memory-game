@@ -12,6 +12,7 @@ var moves = document.querySelector(".moves"); //moves placeholder
 var modal = document.querySelector(".modal"); //get the modal
 var star = document.querySelectorAll(".fa-star"); //stars
 var timer = document.querySelector(".timer"); //timer placeholder
+var totaltime; //total time placeholder
 var hr = 0; //hour
 var min = 0; //minute
 var sec = 0; //second
@@ -50,9 +51,8 @@ function playGame(){
     for(var i = 0; i < 3; i++){ //reset star meter
        star[i].classList.remove("shade"); 
     }
-    hr = 0;
-    min = 0;
-    sec = 0;
+    timer.innerHTML = "0 : 0 : 0"; //reset timer display
+    clearInterval(totaltime); //reset timer
 
     for(var i = 0; i < cards.length; i++){ //loop through all the cards 
         deck.innerHTML = ""; //clear content to hold cards
@@ -140,8 +140,11 @@ function countMoves(){
     moves.innerHTML = count; //display no. of moves
     progress(count);
 
-    if(count === 1){
-        setTime();
+    if(count == 1){
+        hr = 0;
+        min = 0;
+        sec = 0;
+        timed();  //start timer
     }
 }
 
@@ -159,6 +162,22 @@ function progress(count){
     }
 }
 
+//Timer
+function timed(){
+    totaltime = setInterval(function setTime(){
+        sec++;
+        timer.innerHTML = hr + " : " +  min + " : " + sec;
+        if(sec == 60){  // minute
+            min++;
+            sec = 0;    //start over to 0
+        }
+        if(min == 60){  // hour
+            hr++;   
+            min = 0;    //start over to 0
+        }
+    }, 1000);
+}
+
 //Winning modal
 function allCards(){
     var matched = document.getElementsByClassName("match"); //get match cards
@@ -166,9 +185,12 @@ function allCards(){
         console.log("All cards are matched!");
         var totalRating = document.querySelector(".totalRating");
         var totalMoves = document.querySelector(".totalMoves");
+        var totalTime = document.querySelector(".totalTime");
         var stars = document.querySelector(".stars").innerHTML;
+        var times = document.querySelector(".timer").innerHTML;
         totalRating.innerHTML = stars;
         totalMoves.innerHTML = count;
+        totalTime.innerHTML = times;
 
         modal.style.display = "block"; //display modal
     }
@@ -186,18 +208,3 @@ function play(){
     playGame(); //reset game
 }
 
-//Timer
-setInterval(setTime, 1000);
-function setTime(){
-    sec++;
-    timer.innerHTML = hr + " : " +  min + " : " + sec;
-    if(sec == 60){
-        min++;
-        sec = 0;
-    }
-    if(min == 60){
-        hr++;
-        min = 0;
-    }
-
-}
