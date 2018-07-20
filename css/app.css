@@ -139,3 +139,12 @@ h1 {
     padding: 20px;
     width: 70%; 
 }
+
+.modal-content .totalRating .shade{
+   color: plum;
+}
+
+.modal-content .totalRating li{
+    list-style: none;
+    display: inline-block;
+}

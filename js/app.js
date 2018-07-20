@@ -10,7 +10,7 @@ var count = 0; //no. of moves counter
 var reset = document.querySelector(".restart"); //restart button
 var moves = document.querySelector(".moves"); //moves placeholder
 var modal = document.querySelector(".modal"); //get the modal
-
+var star = document.querySelectorAll(".fa-star"); //stars
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -43,6 +43,10 @@ function playGame(){
 
     count = 0; //reset moves counter
     moves.innerHTML = ""; //reset moves display
+    for(var i = 0; i < 3; i++){ //reset star meter
+       star[i].classList.remove("shade"); 
+       //star[i].style.visibility = "visible";
+    }
 
     for(var i = 0; i < cards.length; i++){ //loop through all the cards 
         deck.innerHTML = ""; //clear content to hold cards
@@ -133,15 +137,16 @@ function countMoves(){
 
 //Star meter
 function progress(count){
-    var star = document.querySelectorAll(".fa-star");
     if(count > 8 && count < 12){    //if no. of moves is 8 to 12, decrement star meter
         for(var i = 0; i < 3; i++){
             star[2].classList.add("shade");
+            //star[2].style.visibility = "hidden";
         }
     }   
     else if(count > 13){    //if no. of moves is more than 13, decrement
         for(var i = 0; i < 3; i++){
             star[1].classList.add("shade");
+            //star[1].style.visibility = "hidden";
         }
     }
 }
@@ -151,6 +156,12 @@ function allCards(){
     var matched = document.getElementsByClassName("match"); //get match cards
     if(matched.length === 16){  //check if all cards are matched
         console.log("All cards are matched!");
+        var totalRating = document.querySelector(".totalRating");
+        var totalMoves = document.querySelector(".totalMoves");
+        var stars = document.querySelector(".stars").innerHTML;
+        totalRating.innerHTML = stars;
+        totalMoves.innerHTML = count;
+
         modal.style.display = "block"; //display modal
     }
 
