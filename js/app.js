@@ -4,6 +4,9 @@
 var card = document.getElementsByClassName("card");
 var cards = [...card];
 
+var opened = []; //holds opened cards
+var count = 0; //no. of moves counter
+var moves = document.querySelector(".moves"); //moves placeholder
 
 /*
  * Display the cards on the page
@@ -32,9 +35,12 @@ document.body.onload = playGame(); //Call playgame() when game is loaded
 //Play Game
 function playGame(){
     cards = shuffle(cards); //shuffle cards
- 
+    
     var deck = document.querySelector(".deck"); //deck of cards
-       
+
+    count = 0; //reset moves counter
+    moves.innerHTML = ""; //reset moves display
+
     for(var i = 0; i < cards.length; i++){ //loop through all the cards 
         deck.innerHTML = ""; //clear content to hold cards
         Array.prototype.forEach.call(cards, function(card){ 
@@ -49,7 +55,6 @@ var reset = document.querySelector(".restart"); //restart button
 reset.addEventListener("click", function(){ //Call playgame() when restart button is clicked
     playGame();
 });
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -75,13 +80,11 @@ function display(){
     this.classList.toggle("show");
  }
 
- var opened = []; //holds opened cards
-
  //Check if matched or not
  function openCard(){
      opened.push(this); //add card to a list of opened cards
-
      if(opened.length === 2){  //check if 2 cards are open 
+        countMoves(); //increment move counter
         if(opened[0].type === opened[1].type){ //check if matched or not
             correct();  //matched
         }
@@ -93,7 +96,7 @@ function display(){
 
 //Cards matched
 function correct(){
-    console.log("correct");
+    console.log("Cards matched!");
     for(var i = 0; i < opened.length; i++){   
         opened[i].classList.add("match");   //change color if match and lock the cards
         opened[i].classList.remove("open","show");
@@ -103,7 +106,7 @@ function correct(){
 
  //Cards doesn't matched
 function incorrect(){
-    console.log("incorrect");
+    console.log("Cards did not matched. Try again!");
     for(var i=0;i<opened.length;i++){   
         opened[i].classList.add("notMatch");    //change color if not match
     }
@@ -112,8 +115,14 @@ function incorrect(){
 
 //Hide symbol of card
 function hide(){
-    for(var i = 0; i < opened.length; i++){   
+    for(var i = 0; i < opened.length; i++){   //reset the style of the card
         opened[i].classList.remove("show","open","notMatch"); 
     } 
     opened = [];    //reset opened cards array
+}
+    
+//Count the no. of moves
+function countMoves(){
+    count++; //increment no. of moves
+    moves.innerHTML = count; //display no. of moves
 }
