@@ -148,6 +148,7 @@ h1 {
     margin: 20% auto; 
     padding: 20px;
     width: 70%; 
+    text-align: center;
 }
 
 .modal-content .totalRating .shade{
@@ -157,4 +158,39 @@ h1 {
 .modal-content .totalRating li{
     list-style: none;
     display: inline-block;
+}
+
+.modal-content .modalTop{
+    font-size: 1.75em;
+}
+
+.modal-content .totalRating{
+    font-size: 2em;
+    text-align: center;
+}
+
+.modal-content .modalMsg{
+    padding-top: 2em;
+}
+
+.modal-content .modalMsg span{
+    color: turquoise;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+}
+
+.modal-content .modalBtn{
+    width: 175px;
+    font-size: 0.75em;
+    height: 40px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border: none;
+    background: orange;
+    text-transform: uppercase;
+    border-radius: 50px;
+}
+
+.modal-content .modalBtn:hover{
+    background: sandybrown;
 }

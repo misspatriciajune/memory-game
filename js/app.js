@@ -143,7 +143,7 @@ function hide(){
 //Count the no. of moves
 function countMoves(){
     count++; //increment no. of moves
-    moves.innerHTML = count; //display no. of moves
+    moves.innerHTML = count + " Moves"; //display no. of moves
     progress(count);
 
     if(count == 1){

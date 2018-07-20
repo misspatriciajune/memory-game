@@ -25,7 +25,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-3 cols">
-                    <span class="moves">3</span> Moves
+                    <span class="moves"></span> 
                 </div>
                 <div class="col-xs-3 cols">
                     <div class="timer"></div>
@@ -93,11 +93,15 @@
 
     <div class="modal">
         <div class="modal-content">
-            <span class="modalMsg">Congratulations</span>
-            <p class="totalRating"></p>
-            <p class="totalMoves"></p>
-            <p class="totalTime"></p>
-            <button class="play" onclick="play()">Play again</button>
+            <span class="modalTop">Congratulations! 🎊</span><br><br>
+            <span class="totalRating"></span>
+            <p class="modalMsg"> 
+                You finished it within 
+                <strong><span class="totalTime spans"></span></strong>
+                with a total of
+                <strong><span class="totalMoves spans"></span></strong>  moves
+            </p>
+            <button class="modalBtn btn btn-primary" onclick="play()">Play again</button>
         </div>
     </div>
 
