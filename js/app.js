@@ -227,5 +227,8 @@ function unclickable(){
 function clickable(){   
     Array.prototype.filter.call(cards, function(card){
         card.classList.remove("unclickable");   //Reset click state
+        for(var i = 0; i < matched.length; i++){ //Will not allow clicks for matched cards
+            matched[i].classList.add("unclickable");
+        }
     });
 }
