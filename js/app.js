@@ -138,4 +138,10 @@ function allCards(){
         var modal = document.querySelector(".modal"); //get the modal
         modal.style.display = "block"; //display modal
     }
+
+    window.onclick = function(e) {  //close modal
+        if (e.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
