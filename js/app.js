@@ -11,6 +11,10 @@ var reset = document.querySelector(".restart"); //restart button
 var moves = document.querySelector(".moves"); //moves placeholder
 var modal = document.querySelector(".modal"); //get the modal
 var star = document.querySelectorAll(".fa-star"); //stars
+var timer = document.querySelector(".timer"); //timer placeholder
+var hr = 0; //hour
+var min = 0; //minute
+var sec = 0; //second
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -46,6 +50,9 @@ function playGame(){
     for(var i = 0; i < 3; i++){ //reset star meter
        star[i].classList.remove("shade"); 
     }
+    hr = 0;
+    min = 0;
+    sec = 0;
 
     for(var i = 0; i < cards.length; i++){ //loop through all the cards 
         deck.innerHTML = ""; //clear content to hold cards
@@ -132,6 +139,10 @@ function countMoves(){
     count++; //increment no. of moves
     moves.innerHTML = count; //display no. of moves
     progress(count);
+
+    if(count === 1){
+        setTime();
+    }
 }
 
 //Star meter
@@ -173,4 +184,20 @@ function allCards(){
 function play(){
     modal.style.display = "none"; //close modal
     playGame(); //reset game
+}
+
+//Timer
+setInterval(setTime, 1000);
+function setTime(){
+    sec++;
+    timer.innerHTML = hr + " : " +  min + " : " + sec;
+    if(sec == 60){
+        min++;
+        sec = 0;
+    }
+    if(min == 60){
+        hr++;
+        min = 0;
+    }
+
 }
