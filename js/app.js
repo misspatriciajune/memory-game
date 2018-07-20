@@ -1,7 +1,4 @@
-/*
- * Create a list that holds all of your cards
- */
-var card = document.getElementsByClassName("card");         
+var card = document.getElementsByClassName("card");   //list that holds all cards      
 var cards = [...card];
 
 var matched = document.getElementsByClassName("match");     //get matched cards
