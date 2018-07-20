@@ -85,7 +85,6 @@ h1 {
 	background:red;
 }
 
-
 /*
  * Styles for the Score Panel
  */
@@ -111,4 +110,28 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+/*
+* Styles for the Modal
+*/
+
+.modal {
+    display: none;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1;
+    overflow: auto; 
+    position: fixed; 
+    left: 0;
+    top: 0;
+
+}
+
+.modal-content{
+    background-color: white;
+    margin: 20% auto; 
+    padding: 20px;
+    width: 70%; 
 }

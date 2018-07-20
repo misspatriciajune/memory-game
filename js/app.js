@@ -134,5 +134,8 @@ function allCards(){
     var matched = document.getElementsByClassName("match"); //get match cards
     if(matched.length === 16){  //check if all cards are matched
         console.log("All cards are matched!");
+
+        var modal = document.querySelector(".modal"); //get the modal
+        modal.style.display = "block"; //display modal
     }
 }
