@@ -124,6 +124,7 @@ function incorrect(){
         opened[i].classList.add("notMatch");    //change color if not match
     }
     setTimeout(hide, 1000); //reset style of card
+    unclickable(); //control clicks
 }
 
 //Hide symbol of card
@@ -132,6 +133,7 @@ function hide(){
         opened[i].classList.remove("show","open","notMatch"); 
     } 
     opened = [];    //reset opened cards array
+    clickable();
 }
     
 //Count the no. of moves
@@ -206,5 +208,18 @@ function allCards(){
 function play(){
     modal.style.display = "none"; //close modal
     playGame(); //reset game
+}
+
+//Control clicks on cards 
+function unclickable(){
+    Array.prototype.filter.call(cards, function(card){
+        card.classList.add("unclickable"); //Will not allow clicks, if 2 cards are clicked
+    });
+}
+
+function clickable(){   
+    Array.prototype.filter.call(cards, function(card){
+        card.classList.remove("unclickable");   //Reset click state
+    });
 }
 

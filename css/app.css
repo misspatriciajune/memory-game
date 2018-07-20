@@ -85,6 +85,10 @@ h1 {
 	background:red;
 }
 
+.deck .card.unclickable{
+    pointer-events: none;
+}
+
 /*
  * Styles for the Score Panel
  */
