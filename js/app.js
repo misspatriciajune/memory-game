@@ -45,7 +45,6 @@ function playGame(){
     moves.innerHTML = ""; //reset moves display
     for(var i = 0; i < 3; i++){ //reset star meter
        star[i].classList.remove("shade"); 
-       //star[i].style.visibility = "visible";
     }
 
     for(var i = 0; i < cards.length; i++){ //loop through all the cards 
@@ -140,13 +139,11 @@ function progress(count){
     if(count > 8 && count < 12){    //if no. of moves is 8 to 12, decrement star meter
         for(var i = 0; i < 3; i++){
             star[2].classList.add("shade");
-            //star[2].style.visibility = "hidden";
         }
     }   
     else if(count > 13){    //if no. of moves is more than 13, decrement
         for(var i = 0; i < 3; i++){
             star[1].classList.add("shade");
-            //star[1].style.visibility = "hidden";
         }
     }
 }
