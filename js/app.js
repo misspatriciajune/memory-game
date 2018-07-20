@@ -72,6 +72,7 @@ reset.addEventListener("click", function(){ //Call playgame() when restart butto
 for(var i = 0; i < cards.length; i++){
     cards[i].addEventListener("click", display);  //display card
     cards[i].addEventListener("click", openCard); //check if 2 cards are matched or not
+    cards[i].addEventListener("click", allCards); //check if all cards are matched
 }
 
 //Display of the card's symbol
@@ -104,7 +105,7 @@ function correct(){
     opened = []; //reset opened cards array
 }
 
- //Cards doesn't matched
+//Cards doesn't matched
 function incorrect(){
     console.log("Cards did not matched. Try again!");
     for(var i=0;i<opened.length;i++){   
@@ -125,4 +126,13 @@ function hide(){
 function countMoves(){
     count++; //increment no. of moves
     moves.innerHTML = count; //display no. of moves
+
+}
+
+//Winning modal
+function allCards(){
+    var matched = document.getElementsByClassName("match"); //get match cards
+    if(matched.length === 16){  //check if all cards are matched
+        console.log("All cards are matched!");
+    }
 }
