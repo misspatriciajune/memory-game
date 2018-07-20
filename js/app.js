@@ -4,19 +4,22 @@
 var card = document.getElementsByClassName("card");
 var cards = [...card];
 
-
-var opened = []; //holds opened cards
-var count = 0; //no. of moves counter
+var matched = document.getElementsByClassName("match"); //get matched cards
 var reset = document.querySelector(".restart"); //restart button
 var moves = document.querySelector(".moves"); //moves placeholder
 var modal = document.querySelector(".modal"); //get the modal
 var star = document.querySelectorAll(".fa-star"); //stars
 var timer = document.querySelector(".timer"); //timer placeholder
+
 var totaltime; //total time placeholder
 var hr = 0; //hour
 var min = 0; //minute
 var sec = 0; //second
-var matched = document.getElementsByClassName("match"); //get match cards
+var opened = []; //holds opened cards
+var count = 0; //no. of moves counter
+
+document.body.onload = playGame(); //Call playgame() when game is loaded
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -39,8 +42,6 @@ function shuffle(array) {
     return array;
 }
 
-document.body.onload = playGame(); //Call playgame() when game is loaded
-
 //Play Game
 function playGame(){
     cards = shuffle(cards); //shuffle cards
@@ -60,7 +61,7 @@ function playGame(){
         Array.prototype.forEach.call(cards, function(card){ 
             deck.appendChild(card); //add each card
          });
-         cards[i].classList.remove("show", "open", "match"); //remove style
+         cards[i].classList.remove("show", "open", "match", "unclickable"); //remove style
     }
 }
 
@@ -97,6 +98,7 @@ function display(){
  //Check if matched or not
  function openCard(){
      opened.push(this); //add card to a list of opened cards
+     this.classList.add("unclickable"); //will not allow click on the same card
      if(opened.length === 2){  //check if 2 cards are open 
         countMoves(); //increment move counter
         if(opened[0].type === opened[1].type){ //check if matched or not
@@ -106,6 +108,7 @@ function display(){
             incorrect(); //not matched
         }
      }
+
  }
 
 //Cards matched
@@ -118,7 +121,7 @@ function correct(){
     opened = []; //reset opened cards array
 }
 
-//Cards doesn't matched
+//Cards doesn't match
 function incorrect(){
     console.log("Cards did not matched. Try again!");
     for(var i=0;i<opened.length;i++){   
@@ -213,7 +216,7 @@ function play(){
 //Control clicks on cards 
 function unclickable(){
     Array.prototype.filter.call(cards, function(card){
-        card.classList.add("unclickable"); //Will not allow clicks, if 2 cards are clicked
+        card.classList.add("unclickable"); //Will not allow clicks on card
     });
 }
 
@@ -222,4 +225,3 @@ function clickable(){
         card.classList.remove("unclickable");   //Reset click state
     });
 }
-
