@@ -26,11 +26,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+    text-align: center;
 }
 
 /*
@@ -82,7 +84,7 @@ h1 {
 }
 
 .deck .card.notMatch {
-	background:red;
+	background:tomato;
 }
 
 .deck .card.unclickable{
@@ -181,7 +183,7 @@ h1 {
 
 .modal-content .modalBtn{
     width: 175px;
-    font-size: 0.75em;
+    font-size: 1em;
     height: 40px;
     margin-top: 2em;
     margin-bottom: 2em;
@@ -193,4 +195,84 @@ h1 {
 
 .modal-content .modalBtn:hover{
     background: sandybrown;
+}
+
+/** Responsiveness **/
+@media screen and (max-width:750px){
+    .deck{
+        width: 600px;
+        min-height: 620px;
+    }
+    .deck .card {
+        height: 120px;
+        width: 120px;
+    }
+    .score-panel {
+        width: 600px;
+    }
+    .score-panel .row .cols{
+        width: 150px;
+    }
+}
+
+@media screen and (max-width:650px){
+    .deck{
+        width: 500px;
+        min-height: 520px;
+    }
+    .deck .card {
+        height: 100px;
+        width: 100px;
+    }
+    .score-panel {
+        width: 500px;
+    }
+    .score-panel .row .cols{
+        width: 125px;
+    }
+    h1{
+        font-size: 1.75em;
+    }
+}
+
+@media screen and (max-width:550px){
+    .deck{
+        width: 400px;
+        min-height: 420px;
+    }
+    .deck .card {
+        height: 75px;
+        width: 75px;
+    }
+    .score-panel {
+        width: 400px;
+    }
+    .score-panel .row .cols{
+        width: 100px;
+    }
+    h1{
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width:450px){
+    .deck{
+        width: 300px;
+        min-height: 320px;
+        padding: 30px;
+    }
+    .deck .card {
+        height: 55px;
+        width: 55px;
+    }
+    .score-panel {
+        width: 300px;
+        font-size: 0.8em;
+    }
+    .score-panel .row .cols{
+        width: 75px;
+    }
+    h1{
+        font-size: 1.25em;
+    }
 }

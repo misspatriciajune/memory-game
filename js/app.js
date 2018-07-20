@@ -217,13 +217,14 @@ function play(){
     playGame(); //reset game
 }
 
-//Control clicks on cards 
+//Control clicks on cards if not allowed
 function unclickable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.add("unclickable"); //Will not allow clicks on card
     });
 }
 
+//Control clicks on cards if allowed
 function clickable(){   
     Array.prototype.filter.call(cards, function(card){
         card.classList.remove("unclickable");   //Reset click state
