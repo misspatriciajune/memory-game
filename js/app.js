@@ -188,16 +188,20 @@ function timed(){
 function allCards(){
     if(matched.length === 16){  //check if all cards are matched
         console.log("All cards are matched!");
-        var totalRating = document.querySelector(".totalRating");
-        var totalMoves = document.querySelector(".totalMoves");
-        var totalTime = document.querySelector(".totalTime");
+
+        var totalRating = document.querySelector(".totalRating"); //final rating
+        var totalMoves = document.querySelector(".totalMoves"); //final moves
+        var totalTime = document.querySelector(".totalTime"); //final time
         var stars = document.querySelector(".stars").innerHTML;
         var times = document.querySelector(".timer").innerHTML;
-        totalRating.innerHTML = stars;
-        totalMoves.innerHTML = count;
-        totalTime.innerHTML = times;
+
+        totalRating.innerHTML = stars; //display final rating
+        totalMoves.innerHTML = count; //display final no. of moves
+        totalTime.innerHTML = times; //display final time
 
         modal.style.display = "block"; //display modal
+        
+        console.log("Congratulations! You solved it within " + times + " with " + count + " moves");
     }
 
     window.onclick = function(e) {  //close modal
