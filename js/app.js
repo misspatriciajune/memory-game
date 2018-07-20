@@ -129,13 +129,12 @@ function countMoves(){
 
 }
 
+var modal = document.querySelector(".modal"); //get the modal
 //Winning modal
 function allCards(){
     var matched = document.getElementsByClassName("match"); //get match cards
     if(matched.length === 16){  //check if all cards are matched
         console.log("All cards are matched!");
-
-        var modal = document.querySelector(".modal"); //get the modal
         modal.style.display = "block"; //display modal
     }
 
@@ -144,4 +143,10 @@ function allCards(){
             modal.style.display = "none";
         }
     }
+}
+
+//Play again button on modal
+function play(){
+    modal.style.display = "none"; //close modal
+    playGame(); //reset game
 }
