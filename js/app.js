@@ -66,6 +66,7 @@ reset.addEventListener("click", function(){ //Call playgame() when restart butto
 //Click event listener for the cards
 for(var i = 0; i < cards.length; i++){
     cards[i].addEventListener("click", display);  //display card
+    cards[i].addEventListener("click", openCard); //check if 2 cards are matched or not
 }
 
 //Display of the card's symbol
@@ -74,3 +75,39 @@ function display(){
     this.classList.toggle("show");
  }
 
+ var opened = []; //holds opened cards
+
+ //Check if matched or not
+ function openCard(){
+     opened.push(this); //add card to a list of opened cards
+
+     if(opened.length === 2){  //check if 2 cards are open 
+        if(opened[0].type === opened[1].type){ //check if matched or not
+            correct();  //matched
+        }
+        else{
+            incorrect(); //not matched
+        }
+     }
+ }
+
+//Cards matched
+function correct(){
+    console.log("correct");
+    for(var i = 0; i < opened.length; i++){   
+        opened[i].classList.add("match");   //change color if match and lock the cards
+        opened[i].classList.remove("open","show");
+    }
+    opened = []; //reset opened cards array
+}
+
+ //Cards doesn't matched
+function incorrect(){
+    console.log("incorrect");
+    for(var i=0;i<opened.length;i++){   
+        opened[i].classList.add("notMatch");    //change color if not match
+        opened[i].classList.remove("show","open"); 
+    }
+    
+    opened = [];    //reset opened cards array
+}
