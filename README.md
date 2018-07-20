@@ -2,19 +2,16 @@
 
 ## Table of Contents
 
+* [Introduction](#introduction)
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+
+## Introduction
+This is a logic game built to test user's memory. Users will be solving a deck of 16 cards by finding the matching symbols. 
 
 ## Instructions
+* Click on card to reveal the symbol *
+* Look for the matching symbol by clicking on other cards *
+* Try to match cards with less no. of moves as fast as you can *
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
